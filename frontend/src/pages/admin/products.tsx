@@ -9,16 +9,16 @@ import AdminSidebar from "../../components/admin/AdminSidebar";
 import TableHOC from "../../components/admin/TableHOC";
 import { Skeleton } from "../../components/loader";
 import { useAllProductsQuery } from "../../redux/api/productAPI";
-import { RootState, server } from "../../redux/store";
+import { RootState } from "../../redux/store";
 import { CustomError } from "../../types/api-types";
 
 interface DataType {
-  photo: ReactElement;
-  name: string;
-  desc: string;
-  price: number;
-  stock: number;
-  action: ReactElement;
+	photo: ReactElement;
+	name: string;
+	desc: string;
+	price: number;
+	stock: number;
+	action: ReactElement;
 }
 
 const columns: Column<DataType>[] = [
@@ -64,7 +64,7 @@ const Products = () => {
     if (data)
       setRows(
         data.products.map((i) => ({
-          photo: <img src={`${server}/${i.photo}`} />,
+          photo: <img src={i.photo} />,
           name: i.name,
           desc: i.desc,
           price: i.price,
